@@ -1,0 +1,131 @@
+/* Réinitialisation de quelques styles par défaut pour une meilleure cohérence */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body::before {
+    content: "";
+    position: fixed; /* ou 'absolute', selon le besoin */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('/images/alex-shuper-SNliMkZHVig-unsplash (1).jpg');
+    background-size: cover;
+    background-position: center;
+    filter: grayscale(100%); /* Convertit l'image en noir et blanc */
+    opacity: 0.4; /* Ajustez l'opacité pour l'effet de filigrane, plus la valeur est basse, plus l'effet est subtil */
+    z-index: -1; /* Assure que l'image de fond est derrière le contenu de la page */
+}
+
+body {
+    font-family: 'Arial', sans-serif; /* Utilisez la police de votre choix */
+    line-height: 1.6;
+    color: black;
+    background-color: none;
+    padding: 20px;
+    padding-top: 50px; /* Espace pour la barre de navigation fixe en haut */
+
+}
+
+/* Barre de navigation */
+nav {
+    background: #710505;
+    color: #fff;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+}
+
+nav ul li {
+    margin: 0 10px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+nav ul li a:hover {
+    text-decoration: underline;
+}
+
+/* Styles des titres */
+h1, h2, h3 {
+    margin-bottom: 20px;
+}
+
+/* Contenu principal */
+.container {
+    max-width: 800px;
+    margin: auto;
+    background: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+
+
+/* Positionnement du logo et du texte */
+.logo-frame {
+    position: fixed; /* Utilisez fixed au lieu de relative pour le positionner par rapport à la fenêtre du navigateur */
+    right: 20px; /* Espace depuis le côté droit */
+    bottom: 20px; /* Espace depuis le bas */
+    width: 3cm; /* Assurez-vous que cela correspond à la taille de votre image */
+    height: 3cm; /* Assurez-vous que cela correspond à la taille de votre image */
+    margin: 0; /* Pas besoin de marge supplémentaire ici, ajusté via left et bottom */
+}
+
+.logo-frame img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.text-side {
+    position: absolute;
+    white-space: nowrap;
+    font-size: 12px; /* Ajustez selon vos besoins */
+    color: black; /* Couleur du texte */
+}
+
+.text-top, .text-bottom {
+    left: 0;
+    right: 0;
+    text-align: center;
+}
+
+.text-top {
+    top: -20px; /* Ajustez selon la taille de votre texte */
+}
+
+.text-bottom {
+    bottom: -20px; /* Ajustez selon la taille de votre texte */
+}
+
+.text-left, .text-right {
+    top: 0;
+    bottom: 0;
+    writing-mode: vertical-lr; /* Affiche le texte verticalement */
+    transform: rotate(180deg); /* Retourne le texte de droite pour une lecture de haut en bas */
+}
+
+.text-left {
+    left: -20px; /* Ajustez selon la taille de votre texte */
+}
+
+.text-right {
+    right: -20px; /* Ajustez selon la taille de votre texte */
+}

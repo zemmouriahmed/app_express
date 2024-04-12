@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Nos Services</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="css/image-display.css">
+
+</head>
+<body>
+    <h1>Découvrez nos services passionnants !</h1>
+    <nav>
+        <ul>
+            <li><a href="/">Accueil</a></li>
+            <li><a href="/services">Nos services</a></li>
+            <li><a href="/contact">Nous contacter</a></li>
+        </ul>
+    </nav>
+    <section>
+        <h2>Nos aventures</h2>
+        <p>Plongez dans un monde d'adrénaline avec nos offres uniques :</p>
+        <ul>
+            <li>Saut à l'élastique</li>
+            <li>Parapente</li>
+            <li>Saut en parachute ou en base jump</li>
+            <li>Baptême en montgolfière</li>
+            <li>Baptême de l'air en petit avion à hélice</li>
+            <li>Plongée sous-marine en cage avec des grands requins <i class="fa fa-balance-scale" aria-hidden="true"></i></li>
+            <li>Vol en wingsuit</li>
+
+        </ul>
+        <p>Nous offrons également des expériences sur mesure pour répondre à toutes vos envies d'aventure !</p>
+    </section>
+    <div class="logo-frame">
+        <div class="text-side text-top">ADVENTURE & Co.</div>
+        <div class="text-side text-right">ADVENTURE & Co.</div>
+        <div class="text-side text-bottom">ADVENTURE & Co.</div>
+        <div class="text-side text-left">ADVENTURE & Co.</div>
+        <img src="/images/alex-shuper-SNliMkZHVig-unsplash (1).jpg" alt="Logo">
+    </div>
+    
+    <!-- Début de la zone indépendante pour l'affichage des images -->
+<!-- Zone d'affichage des images -->
+<div class="independent-image-display" id="imageCarousel">
+    <!-- Les images seront chargées ici par JavaScript -->
+</div>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    fetch('/images-list')
+    .then(response => response.json())
+    .then(images => {
+        let currentIndex = 0;
+        const imagesFolder = '/images/'; // Assurez-vous que le chemin est correct
+
+        function showNextImage() {
+            if (!images.length) return; // S'arrête si aucun image
+            const imgElement = document.createElement('img');
+            imgElement.src = imagesFolder + images[currentIndex];
+            imgElement.style.width = '100%';
+            imgElement.style.height = '100%';
+            imgElement.style.objectFit = 'contain';
+
+            const container = document.getElementById('imageCarousel');
+            container.innerHTML = ''; // Supprime l'image précédente
+            container.appendChild(imgElement);
+
+            currentIndex = (currentIndex + 1) % images.length; // Passe à l'image suivante, boucle au début
+            setTimeout(showNextImage, 3000); // Change d'image toutes les 3 secondes
+        }
+
+        showNextImage();
+    })
+    .catch(error => console.error('Error loading images:', error));
+});
+</script>
+
+
+</body>
+</html>

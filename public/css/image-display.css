@@ -1,0 +1,19 @@
+/* Styles pour la zone d'affichage des images indépendante */
+.independent-image-display {
+    width: 50%; /* Largeur de 50% du conteneur parent */
+    height: 50vh; /* Hauteur de 50% de la hauteur de la fenêtre du navigateur */
+    position: fixed; /* Positionnement fixe par rapport à la fenêtre du navigateur */
+    bottom: 0; /* Aligné en bas */
+    left: 50%; /* Positionné à la moitié de la largeur de l'écran */
+    transform: translateX(-50%); /* Décalage à gauche pour centrer l'élément */
+    padding: 10px; /* Padding pour l'esthétique */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Ajout d'ombre pour le style */
+    background-color: #fff; /* Fond blanc pour l'esthétique */
+    overflow: hidden; /* Empêche le débordement du contenu */
+}
+
+.independent-image-display img {
+    width: 100%; /* L'image prend toute la largeur de la div */
+    height: 100%; /* L'image prend toute la hauteur de la div */
+    object-fit: contain; /* Assure que l'image couvre entièrement la div sans perdre ses proportions */
+}
